@@ -74,6 +74,10 @@ public class DefaultNotificationWindow extends JWindow {
 	 */
 	public DefaultNotificationWindow(Icon icon, String title, String message, INotificationStyle style, GraphicsConfiguration graphicsConfiguration) {
 		super(graphicsConfiguration);
+
+		// setting the type to popup prevents the window from beeing managed (useful for i3-wm)
+		setType(Type.POPUP);
+
 		// setup insets
 		final Map<String,Object> customParams = style.getCustomParams();
 		Insets fIconInsets = sIconInsets;
